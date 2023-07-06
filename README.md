@@ -23,7 +23,7 @@ In this project, we demonstrate how to align the space between two VIVE XR Elite
         -   [TextMeshPro](https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html) 3.0.6 or newer
     -   Unity Assets:
         -   [Photon](https://www.photonengine.com/) account and [Photon Pun 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922) asset 2.42.0 or newer
-        -   [KY Magic Effects Free](https://assetstore.unity.com/packages/vfx/particles/spells/) 1.1.1 or newer
+        -   [KY Magic Effects Free](https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927) 1.1.1 or newer
 
 ## Settings & Build Setup
 
@@ -43,7 +43,7 @@ In this project, we demonstrate how to align the space between two VIVE XR Elite
 
     - [Photon Pun 2](https://assetstore.unity.com/packages/tools/network/pun-2-free-119922).  
        Note that you have to use your own Photon `App ID`. See [Photon Pun -- Setup and Connect](https://doc.photonengine.com/pun/current/getting-started/initial-setup) for more information.
-    - [KY Magic Effects Free](https://assetstore.unity.com/packages/vfx/particles/spells/)
+    - [KY Magic Effects Free](https://assetstore.unity.com/packages/vfx/particles/spells/ky-magic-effects-free-21927)
 
 5. Import this project and setup build settings.
     - Add the scenes in `Assets/SharedSpaceExperience/Scenes` to the `Scenes In Build`, and set `Lobby` scene as the entry scene.
