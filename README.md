@@ -61,6 +61,8 @@ In this project, we demonstrate how to align the space between two VIVE XR Elite
         2. Click `Start` Button to start matching. The player who join the match first will be the host.
     2. Aligning Space
         1. The host have to scan and specify a marker for space alignment.
+            - To scan a marker, the player needs to look at it with VIVE XR Elite (in the front to get precise position). When the marker is detected, a marker frame will appear on the same spot. The players can then select the marker using the controller.
+            - To rescan the marker, first cover (or remove) the marker and look at the front of marker for about 10 seconds. Then uncover the marker and scan it again.
         2. After the host selects a marker, the other player has to scan and select the same one to align the space. Once the alignment is completed, players can see each other's virtual controller models and check whether the space has been properly aligned.
     3. Playing
         1. The game starts once the alignment process is completed.
