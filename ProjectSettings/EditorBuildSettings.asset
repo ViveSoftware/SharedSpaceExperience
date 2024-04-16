@@ -6,15 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SharedSpaceExperience/Scenes/Lobby.unity
-    guid: 7645911e0bde01745a2e2657d9a5b2bc
+    path: Assets/SharedSpaceExperience/Launcher/Scenes/Launcher.unity
+    guid: bd43a562529b1d548b71f9cb384fab1a
   - enabled: 1
-    path: Assets/SharedSpaceExperience/Scenes/GameScene.unity
-    guid: 388e874d2142abc4987d4cbf44f25283
+    path: Assets/SharedSpaceExperience/Apps/ShootingGame/Scenes/ShootingGame.unity
+    guid: 57e85424d73190b418c2d645b1057fb9
   m_configObjects:
-    com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: 0c289703430734e4b8c3601f31ea3970,
-      type: 2}
-    com.unity.input.settings: {fileID: 11400000, guid: ae8bedddd1078a344aa9142fee063b51,
-      type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c861621eb3016344f8340be06ad37986,
-      type: 2}
+    com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: a92262003065a3440a9fdb7d3b753962, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 806203b9d58bf4147b368497e58258c5, type: 2}

@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
-  - Health
   - Shield
+  - Health
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -43,10 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 4280203403
-    locked: 0
-  - name: Particles
-    uniqueID: 1772317121
     locked: 0

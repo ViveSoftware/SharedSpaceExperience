@@ -1,49 +1,98 @@
+#if UNITY_EDITOR || !UNITY_ANDROID
+#define PC_DEBUG
+#endif
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+
+using SharedSpaceExperience;
 
 public class DebugManager : MonoBehaviour
 {
+
+    public static DebugManager Instance { get; private set; }
+
     [SerializeField]
+    private InputSystemUIInputModule inputSystemUIInputModule;
+    [SerializeField]
+    private bool hideVRObjects = true;
+    [SerializeField]
+    private List<GameObject> vrObjects = new();
+    [SerializeField]
+    private List<GameObject> debugObjects = new();
+
+    [SerializeField]
+    private InputAction debugModeAction;
+
     private bool isDebugMode = false;
-    public InputAction debugAction;
-    public GameObject[] DebugObjects;
-    public DebugModelController[] models;
 
     private void OnEnable()
     {
-        debugAction.Enable();
-        debugAction.started += ToggleDebugMode;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this) Destroy(this);
+
+#if PC_DEBUG
+        if (hideVRObjects)
+        {
+            // hide VR object 
+            foreach (GameObject obj in vrObjects)
+            {
+                obj.SetActive(false);
+            }
+        }
+        // enable PC input system
+        inputSystemUIInputModule.enabled = true;
+#else
+        inputSystemUIInputModule.enabled = false;
+#endif
+
+        debugModeAction.Enable();
+        debugModeAction.started += ToggleDebugObjects;
+
+        ShowDebugObjects();
     }
 
     private void OnDisable()
     {
-        debugAction.started -= ToggleDebugMode;
-        debugAction.Disable();
+        debugModeAction.started -= ToggleDebugObjects;
+        debugModeAction.Disable();
     }
 
-    private void Start()
+    private void ToggleDebugObjects(InputAction.CallbackContext context)
     {
-        SetDebugMode(isDebugMode);
+        isDebugMode = !isDebugMode;
+        ShowDebugObjects();
+
     }
 
-    public void SetDebugMode(bool debugMode)
+    private void ShowDebugObjects()
     {
-        isDebugMode = debugMode;
-
-        for (int i = 0; i < DebugObjects.Length; ++i)
+        foreach (GameObject obj in debugObjects)
         {
-            DebugObjects[i].SetActive(isDebugMode);
+            obj.SetActive(isDebugMode);
         }
 
-        models = GameObject.FindObjectsOfType<DebugModelController>();
-        foreach (DebugModelController model in models)
+        // show user model
+        if (UserManager.Instance != null)
         {
-            model.SetActive(isDebugMode);
+            UserManager.Instance.ForceShowUserDefaultModel(isDebugMode);
         }
     }
 
-    public void ToggleDebugMode(InputAction.CallbackContext context)
+    public void AddDebugObject(GameObject obj)
     {
-        SetDebugMode(!isDebugMode);
+        debugObjects.Add(obj);
+        obj.SetActive(isDebugMode);
     }
+
+    public void RemoveDebugObject(GameObject obj)
+    {
+        debugObjects.Remove(obj);
+    }
+
 }
